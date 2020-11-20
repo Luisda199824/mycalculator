@@ -18,7 +18,7 @@ type Calculator struct {
 func main() {
 	operacion := ReadEntry()
 
-	operador := detectOperador(operacion)
+	operador := DetectOperador(operacion)
 	valores := strings.Split(operacion, operador)
 
 	// Cast valores from text to number
@@ -76,7 +76,7 @@ func (Calculator) operar(operador string, operador1 int, operador2 int) float64 
 	return result
 }
 
-func detectOperador(operation string) string {
+func DetectOperador(operation string) string {
 	if strings.Contains(operation, "+") {
 		return "+"
 	} else if strings.Contains(operation, "-") {
