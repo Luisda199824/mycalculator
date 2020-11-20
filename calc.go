@@ -22,8 +22,8 @@ func main() {
 	valores := strings.Split(operacion, operador)
 
 	// Cast valores from text to number
-	operador1 := strToInt(valores[0])
-	operador2 := strToInt(valores[1])
+	operador1 := StrToInt(valores[0])
+	operador2 := StrToInt(valores[1])
 
 	calc := Calculator{operador, operador1, operador2}
 
@@ -42,7 +42,7 @@ func ReadEntry() string {
 	return scanner.Text()
 }
 
-func strToInt(value string) int {
+func StrToInt(value string) int {
 	intValue, errValue := strconv.Atoi(value)
 	if errValue != nil {
 		fmt.Println("Operador 2 no es válido")
