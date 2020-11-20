@@ -9,14 +9,14 @@ import (
 	"strings"
 )
 
-type calculator struct {
+type Calculator struct {
 	operador  string
 	operador1 int
 	operador2 int
 }
 
 func main() {
-	operacion := readEntry()
+	operacion := ReadEntry()
 
 	operador := detectOperador(operacion)
 	valores := strings.Split(operacion, operador)
@@ -25,7 +25,7 @@ func main() {
 	operador1 := strToInt(valores[0])
 	operador2 := strToInt(valores[1])
 
-	calc := calculator{operador, operador1, operador2}
+	calc := Calculator{operador, operador1, operador2}
 
 	fmt.Println("Resultado: ", calc.operar(
 		calc.operador,
@@ -34,7 +34,7 @@ func main() {
 	))
 }
 
-func readEntry() string {
+func ReadEntry() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Println("Ingrese la operacion (suma, de la forma numero + numero, ej: 2+2): ")
 	scanner.Scan()
@@ -52,7 +52,7 @@ func strToInt(value string) int {
 	return intValue
 }
 
-func (calculator) operar(operador string, operador1 int, operador2 int) float64 {
+func (Calculator) operar(operador string, operador1 int, operador2 int) float64 {
 	var result float64
 
 	switch operador {
